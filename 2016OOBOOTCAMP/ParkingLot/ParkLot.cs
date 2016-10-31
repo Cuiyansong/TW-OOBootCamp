@@ -7,23 +7,36 @@ namespace ParkingLot
 {
     class ParkLot
     {
-        private Car car;
+        private readonly Dictionary<string, Car> cars;
+        private int capacity = 0;
 
         public ParkLot(int capacity)
         {
-            
+            this.capacity = capacity;
+            cars = new Dictionary<string, Car>(capacity);
         }
-
 
         public Car Pick(string id)
         {
-            return car;
+            if (!cars.ContainsKey(id))
+            {
+                return null;
+            }
+
+            var pickedCar = cars[id];
+            cars.Remove(pickedCar.Id);
+            return pickedCar;
         }
 
         public string Park(Car parkedCar)
         {
-            this.car = parkedCar;
-            return "1";
+            if (cars.Count + 1 > capacity)
+            {
+                return null;
+            }
+
+            cars.Add(parkedCar.Id, parkedCar);
+            return parkedCar.Id;
         }
     }
 }
