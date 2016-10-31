@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using OOBootCamp;
 
-namespace ParkingLot
+namespace OOBootCamp
 {
-    class ParkLot
+    class ParkingLot
     {
         private readonly Dictionary<string, Car> cars;
         private int capacity = 0;
 
-        public ParkLot(int capacity)
+        public ParkingLot(int capacity)
         {
             this.capacity = capacity;
             cars = new Dictionary<string, Car>(capacity);

@@ -5,7 +5,7 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2016OOBOOTCAMP", "UnitTestProject1\2016OOBOOTCAMP.csproj", "{0DC21E70-965E-4C5B-960D-4CBD3D3ADD37}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParkingLot", "ParkingLot\ParkingLot.csproj", "{5452C8C8-E546-42A0-9C44-F2D228760183}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OOBootCamp", "ParkingLot\OOBootCamp.csproj", "{5452C8C8-E546-42A0-9C44-F2D228760183}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
