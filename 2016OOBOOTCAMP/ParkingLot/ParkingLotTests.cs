@@ -24,10 +24,9 @@ namespace OOBootCamp
             var firstCar = new Car("Car One");
             var secondCar = new Car("Second One");
 
-            var firstCarId = p.Park(firstCar);
+            p.Park(firstCar);
             var secondCarId = p.Park(secondCar);
 
-            Assert.AreSame(firstCar, p.Pick(firstCarId));
             Assert.AreSame(secondCar, p.Pick(secondCarId));
         }
 
@@ -38,7 +37,7 @@ namespace OOBootCamp
             var myCar = new Car("my own car is unique");
 
             var myCarId = p.Park(myCar);
-            Assert.AreSame(myCar, p.Pick(myCarId));
+            p.Pick(myCarId);
 
             Assert.IsNull(p.Pick(myCarId));
         }
@@ -71,10 +70,9 @@ namespace OOBootCamp
             var secondCar = new Car("second car");
 
             var firstCarId = p.Park(firstCar);
-            var pickedFirstCar = p.Pick(firstCarId);
+            p.Pick(firstCarId);
             var secondCarId = p.Park(secondCar);
 
-            Assert.AreSame(firstCar, pickedFirstCar);
             Assert.AreSame(secondCar, p.Pick(secondCarId));
         }
     }

@@ -8,36 +8,41 @@ namespace OOBootCamp
 {
     class ParkingLot
     {
-        private readonly Dictionary<string, Car> cars;
-        private int capacity = 0;
+        private readonly Dictionary<string, Car> parkedCars;
+        private readonly int capacity = 0;
 
         public ParkingLot(int capacity)
         {
             this.capacity = capacity;
-            cars = new Dictionary<string, Car>(capacity);
+            parkedCars = new Dictionary<string, Car>(capacity);
         }
 
         public Car Pick(string id)
         {
-            if (!cars.ContainsKey(id))
+            if (!parkedCars.ContainsKey(id))
             {
                 return null;
             }
 
-            var pickedCar = cars[id];
-            cars.Remove(pickedCar.Id);
+            var pickedCar = parkedCars[id];
+            parkedCars.Remove(pickedCar.Id);
             return pickedCar;
         }
 
         public string Park(Car parkedCar)
         {
-            if (cars.Count + 1 > capacity)
+            if (IsParkingLotFull())
             {
                 return null;
             }
 
-            cars.Add(parkedCar.Id, parkedCar);
+            parkedCars.Add(parkedCar.Id, parkedCar);
             return parkedCar.Id;
+        }
+
+        private bool IsParkingLotFull()
+        {
+            return parkedCars.Count == capacity;
         }
     }
 }
