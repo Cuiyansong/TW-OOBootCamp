@@ -6,7 +6,7 @@ using OOBootCamp;
 
 namespace OOBootCamp
 {
-    class ParkingLot
+    public class ParkingLot
     {
         private readonly Dictionary<string, Car> parkedCars;
         private readonly int capacity = 0;
@@ -40,7 +40,7 @@ namespace OOBootCamp
             return parkedCar.Id;
         }
 
-        private bool IsParkingLotFull()
+        public bool IsParkingLotFull()
         {
             return parkedCars.Count == capacity;
         }
