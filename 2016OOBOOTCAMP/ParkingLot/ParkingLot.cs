@@ -11,6 +11,11 @@ namespace OOBootCamp
         private readonly Dictionary<string, Car> parkedCars;
         private readonly int capacity = 0;
 
+        public int EmptySpaceCount
+        {
+            get { return capacity - this.parkedCars.Count; }
+        }
+
         public ParkingLot(int capacity)
         {
             this.capacity = capacity;

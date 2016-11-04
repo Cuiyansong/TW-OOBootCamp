@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace OOBootCamp
 {
     [TestClass]
-    public class ParkingLotTests
+    public class ParkingLotFacts
     {
         [TestMethod]
         public void given_a_parking_lot_when_park_a_car_then_I_can_pick_a_car()

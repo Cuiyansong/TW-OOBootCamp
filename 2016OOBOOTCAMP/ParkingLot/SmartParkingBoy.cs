@@ -1,22 +1,26 @@
-﻿namespace OOBootCamp
+﻿using System.Collections.Generic;
+using System.Linq;
+
+namespace OOBootCamp
 {
     public class SmartParkingBoy
     {
-        private readonly ParkingLot parkingLot;
+        private readonly List<ParkingLot> parkingLots;
 
-        public SmartParkingBoy(ParkingLot parkingLot)
+        public SmartParkingBoy(List<ParkingLot> parkingLots)
         {
-            this.parkingLot = parkingLot;
+            this.parkingLots = parkingLots;
         }
 
         public Car Pick(string carId)
         {
-            return parkingLot.Pick(carId);
+            var parkingLotWithParkedCar = parkingLots.FirstOrDefault(p => p.Pick(carId) != null);
+            return parkingLotWithParkedCar != null ? parkingLotWithParkedCar.Pick(carId) : null;
         }
 
         public string Park(Car car)
         {
-            return parkingLot.Park(car);
+            return parkingLots.OrderByDescending(p => p.EmptySpaceCount).First().Park(car);
         }
     }
 }

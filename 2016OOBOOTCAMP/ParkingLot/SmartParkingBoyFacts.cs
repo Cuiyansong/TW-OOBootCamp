@@ -1,32 +1,48 @@
-﻿using System.Net.Sockets;
+﻿using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace OOBootCamp
 {
     [TestClass]
-    public class SmartParkingBoyFacts
+    public class SmartParkingBoyFacts : ParkingLotFacts
     {
         [TestMethod]
-        public void given_a_parkinglot_and_a_smart_boy_and_park_a_car_when_smart_boy_pick_the_car_then_the_car_can_pick()
+        public void given_two_parkingLot_with_same_space_and_a_smart_parking_boy_when_smart_boy_park_a_car_then_the_car_in_the_first_parkingLot()
         {
-            var parkingLot = new ParkingLot(1);
+            var firstParkinglot = new ParkingLot(1);
+            var secondParkinglot = new ParkingLot(1);
+
+            var smartParkingBoy = new SmartParkingBoy(new List<ParkingLot> {firstParkinglot, secondParkinglot});
             var car = new Car("car");
-            var carId = parkingLot.Park(car);
+            var carId = smartParkingBoy.Park(car);
 
-            var pickedCar = new SmartParkingBoy(parkingLot).Pick(carId);
-
-            Assert.AreSame(car, pickedCar);
+            Assert.AreSame(car, firstParkinglot.Pick(carId));
         }
 
-        [TestMethodAttribute]
-        public void given_a_parkinglot_and_a_smart_boy_when_smart_boy_park_car_then_parkinglot_pick_the_car()
+        [TestMethod]
+        public void given_first_parkingLot_with_one_space_and_second_parkingLot_with_two_space_and_a_smart_parking_boy_when_smart_boy_park_a_car_then_the_car_in_the_second_parkingLot()
         {
-            var parkingLot = new ParkingLot(2);
+            var firstParkinglot = new ParkingLot(1);
+            var secondParkinglot = new ParkingLot(2);
 
+            var smartParkingBoy = new SmartParkingBoy(new List<ParkingLot> { firstParkinglot, secondParkinglot });
             var car = new Car("car");
-            var carId = new SmartParkingBoy(parkingLot).Park(car);
+            var carId = smartParkingBoy.Park(car);
 
-            Assert.AreSame(car, parkingLot.Pick(carId));
+            Assert.AreSame(car, secondParkinglot.Pick(carId));
+        }
+
+        [TestMethod]
+        public void given_first_parkingLot_with_two_space_and_second_parkingLot_with_one_space_and_a_smart_parking_boy_when_smart_boy_park_a_car_then_the_car_in_the_first_parkingLot()
+        {
+            var firstParkinglot = new ParkingLot(2);
+            var secondParkinglot = new ParkingLot(1);
+
+            var smartParkingBoy = new SmartParkingBoy(new List<ParkingLot> { firstParkinglot, secondParkinglot });
+            var car = new Car("car");
+            var carId = smartParkingBoy.Park(car);
+
+            Assert.AreSame(car, firstParkinglot.Pick(carId));
         }
     }
 }
