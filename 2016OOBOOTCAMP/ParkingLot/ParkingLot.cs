@@ -54,5 +54,10 @@ namespace OOBootCamp
         {
             return parkedCars.Count == capacity;
         }
+
+        public bool Contains(string id)
+        {
+            return parkedCars.ContainsKey(id);
+        }
     }
 }

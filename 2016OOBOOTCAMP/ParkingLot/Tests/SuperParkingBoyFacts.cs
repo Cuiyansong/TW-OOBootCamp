@@ -27,7 +27,8 @@ namespace ParkingLot.Tests
             var car = new Car("car");
             var carId = superParkingBoy.Park(car);
 
-            Assert.AreSame(car, superParkingBoy.Pick(carId));
+            var pickedCar = superParkingBoy.Pick(carId);
+            Assert.AreSame(car, pickedCar);
         }
 
         [TestMethod]

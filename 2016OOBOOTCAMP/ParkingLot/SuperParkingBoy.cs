@@ -20,7 +20,7 @@ namespace OOBootCamp
 
         public Car Pick(string carId)
         {
-            var parkingLotWithParkedCar = parkingLots.FirstOrDefault(p => p.Pick(carId) != null);
+            var parkingLotWithParkedCar = parkingLots.FirstOrDefault(p => p.Contains(carId));
             return parkingLotWithParkedCar != null ? parkingLotWithParkedCar.Pick(carId) : null;
         }
     }
