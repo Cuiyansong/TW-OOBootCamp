@@ -5,7 +5,7 @@ namespace OOBootCamp
 {
     public class ParkingBoy
     {
-        private readonly List<ParkingLot> parkingLots;
+        private readonly List<ParkingLot> parkingLots = new List<ParkingLot>();
 
         public ParkingBoy(ParkingLot parkingLot)
         {

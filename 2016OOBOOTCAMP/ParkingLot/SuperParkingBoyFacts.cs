@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace OOBootCamp
 {
     [TestClass]
-    public class SuperParkingBoyFacts : ParkingLotFacts
+    public class SuperParkingBoyFacts
     {
         [TestMethod]
         public void given_a_parkingLot_and_a_super_parking_boy_when_super_boy_park_a_car_then_the_car_in_the_parkingLot()
@@ -36,26 +36,6 @@ namespace OOBootCamp
             var secondPrakingLot = new ParkingLot(3);
 
 
-        }
-    }
-
-    public class SuperParkingBoy
-    {
-        private readonly List<ParkingLot> parkingLots;
-
-        public SuperParkingBoy(List<ParkingLot> parkingLots)
-        {
-            this.parkingLots = parkingLots;
-        }
-
-        public string Park(Car car)
-        {
-           return this.parkingLots[0].Park(car);
-        }
-
-        public Car Pick(string carId)
-        {
-            return this.parkingLots[0].Pick(carId);
         }
     }
 }
