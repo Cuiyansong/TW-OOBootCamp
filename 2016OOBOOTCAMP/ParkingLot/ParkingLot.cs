@@ -13,7 +13,7 @@ namespace OOBootCamp
 
         public int EmptySpaceCount
         {
-            get { return capacity ; }
+            get { return capacity - this.parkedCars.Count; }
         }
 
         public ParkingLot(int capacity)
