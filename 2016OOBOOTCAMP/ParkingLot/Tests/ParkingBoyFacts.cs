@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using OOBootCamp;
 
-namespace OOBootCamp
+namespace ParkingLot.Tests
 {
     [TestClass]
     public class ParkingBoyFacts
@@ -11,7 +12,7 @@ namespace OOBootCamp
             given_a_parking_lot_and_a_parking_boy_when_parking_boy_park_a_car_then_parking_boy_can_pick_the_car
             ()
         {
-            var parkingLot = new ParkingLot(1);
+            var parkingLot = new OOBootCamp.ParkingLot(1);
             var parkingBoy = new ParkingBoy(parkingLot);
 
             var myCar = new Car("a");
@@ -25,7 +26,7 @@ namespace OOBootCamp
             given_a_parking_lot_and_parking_boy_when_parking_boy_park_a_car_then_pick_the_car_from_parking_lot
             ()
         {
-            var parkingLot = new ParkingLot(1);
+            var parkingLot = new OOBootCamp.ParkingLot(1);
             var parkingBoy = new ParkingBoy(parkingLot);
 
             var myCar = new Car("a");
@@ -39,7 +40,7 @@ namespace OOBootCamp
            given_a_parking_lot_and_a_parking_boy_when_park_a_car_in_parking_lot_directly_then_parking_boy_can_pick_the_car
             ()
         {
-            var parkingLot = new ParkingLot(1);
+            var parkingLot = new OOBootCamp.ParkingLot(1);
             var parkingBoy = new ParkingBoy(parkingLot);
 
             var myCar = new Car("a");
@@ -53,7 +54,7 @@ namespace OOBootCamp
             given_a_no_space_parking_lot_and_a_parking_boy_when_parking_boy_park_a_car_then_can_not_park_a_car
             ()
         {
-            var parkingLot = new ParkingLot(0);
+            var parkingLot = new OOBootCamp.ParkingLot(0);
             var parkingBoy = new ParkingBoy(parkingLot);
 
             var myCar = new Car("a");
@@ -67,7 +68,7 @@ namespace OOBootCamp
    given_a_parking_lot_and_a_parking_boy_then_parking_boy_park_a_car_and_pick_the_car_then_parking_boy_cannot_pick_the_car
             ()
         {
-            var parkingLot = new ParkingLot(1);
+            var parkingLot = new OOBootCamp.ParkingLot(1);
             var parkingBoy = new ParkingBoy(parkingLot);
             var myCar = new Car("a");
 
@@ -82,9 +83,9 @@ namespace OOBootCamp
             given_two_parking_lot_with_space_and_a_parking_boy_when_parking_boy_park_a_car_then_the_car_parked_in_the_first_parking_lot
             ()
         {
-            var firstParkingLot = new ParkingLot(1);
-            var secondParkingLot = new ParkingLot(1);
-            var parkingBoy = new ParkingBoy(new List<ParkingLot>() {firstParkingLot, secondParkingLot });
+            var firstParkingLot = new OOBootCamp.ParkingLot(1);
+            var secondParkingLot = new OOBootCamp.ParkingLot(1);
+            var parkingBoy = new ParkingBoy(new List<OOBootCamp.ParkingLot>() {firstParkingLot, secondParkingLot });
             var car = new Car("car");
 
             var carId = parkingBoy.Park(car);
@@ -97,9 +98,9 @@ namespace OOBootCamp
             given_two_parking_lot_with_first_parking_lot_is_full_when_parking_boy_park_a_car_then_the_car_parked_in_the_second_parking_lot
             ()
         {
-            var firstParkingLot = new ParkingLot(0);
-            var secondParkingLot = new ParkingLot(1);
-            var parkingBoy = new ParkingBoy(new List<ParkingLot>() { firstParkingLot, secondParkingLot });
+            var firstParkingLot = new OOBootCamp.ParkingLot(0);
+            var secondParkingLot = new OOBootCamp.ParkingLot(1);
+            var parkingBoy = new ParkingBoy(new List<OOBootCamp.ParkingLot>() { firstParkingLot, secondParkingLot });
             var car = new Car("car");
 
             var carId = parkingBoy.Park(car);
@@ -112,9 +113,9 @@ namespace OOBootCamp
             given_two_parking_lot_with_all_parking_lot_is_full_when_parking_boy_park_a_car_then_the_car_cannot_be_parked
             ()
         {
-            var firstParkingLot = new ParkingLot(0);
-            var secondParkingLot = new ParkingLot(0);
-            var parkingBoy = new ParkingBoy(new List<ParkingLot>() { firstParkingLot, secondParkingLot });
+            var firstParkingLot = new OOBootCamp.ParkingLot(0);
+            var secondParkingLot = new OOBootCamp.ParkingLot(0);
+            var parkingBoy = new ParkingBoy(new List<OOBootCamp.ParkingLot>() { firstParkingLot, secondParkingLot });
             var car = new Car("car");
 
             var carId = parkingBoy.Park(car);
@@ -127,9 +128,9 @@ namespace OOBootCamp
             given_two_parking_lot_when_parking_boy_park_a_car_and_pick_the_car_then_parking_boy_cannot_pick_a_car
             ()
         {
-            var firstParkingLot = new ParkingLot(1);
-            var secondParkingLot = new ParkingLot(1);
-            var parkingBoy = new ParkingBoy(new List<ParkingLot>() { firstParkingLot, secondParkingLot });
+            var firstParkingLot = new OOBootCamp.ParkingLot(1);
+            var secondParkingLot = new OOBootCamp.ParkingLot(1);
+            var parkingBoy = new ParkingBoy(new List<OOBootCamp.ParkingLot>() { firstParkingLot, secondParkingLot });
             var car = new Car("car");
 
             var carId = parkingBoy.Park(car);
