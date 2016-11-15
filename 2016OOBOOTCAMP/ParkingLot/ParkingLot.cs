@@ -16,6 +16,11 @@ namespace OOBootCamp
             get { return capacity - this.parkedCars.Count; }
         }
 
+        public int Capacity 
+        {
+            get { return this.capacity; }
+        }
+
         public ParkingLot(int capacity)
         {
             this.capacity = capacity;

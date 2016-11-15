@@ -30,12 +30,37 @@ namespace OOBootCamp
         }
 
         [TestMethod]
-        public void given_two_parkinglot_and_the_first_()
+        public void given_two_parkinglot_and_the_first_parkinglot_emptyRate_is_larger_than_the_second_one_when_super_boy_park_a_car_then_the_first_parkinglot_could_pick_the_car()
         {
             var firstPrakingLot = new ParkingLot(4);
             var secondPrakingLot = new ParkingLot(3);
+            var car = new Car("car");
+            var parkedCarInFirstParkingLot = new Car("car parked in the first parkinglot");
+            var parkedCarInSecondParkingLot = new Car("car parked in the second parkinglot");
+            firstPrakingLot.Park(parkedCarInFirstParkingLot);
+            secondPrakingLot.Park(parkedCarInSecondParkingLot);
+            var superBoy = new SuperParkingBoy(new List<ParkingLot>() { firstPrakingLot, secondPrakingLot });
 
+            var carId = superBoy.Park(car);
 
+            Assert.AreSame(car, firstPrakingLot.Pick(carId));
+        }
+
+        [TestMethod]
+        public void given_two_parkinglot_and_the_first_parkinglot_emptyRate_is_smaller_than_the_second_one_when_super_boy_park_a_car_then_the_second_parkinglot_could_pick_the_car()
+        {
+            var firstPrakingLot = new ParkingLot(3);
+            var secondPrakingLot = new ParkingLot(4);
+            var car = new Car("car");
+            var parkedCarInFirstParkingLot = new Car("car parked in the first parkinglot");
+            var parkedCarInSecondParkingLot = new Car("car parked in the second parkinglot");
+            firstPrakingLot.Park(parkedCarInFirstParkingLot);
+            secondPrakingLot.Park(parkedCarInSecondParkingLot);
+            var superBoy = new SuperParkingBoy(new List<ParkingLot>() { firstPrakingLot, secondPrakingLot });
+
+            var carId = superBoy.Park(car);
+
+            Assert.AreSame(car, secondPrakingLot.Pick(carId));
         }
     }
 }

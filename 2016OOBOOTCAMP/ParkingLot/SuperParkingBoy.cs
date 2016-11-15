@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace OOBootCamp
 {
@@ -13,12 +14,14 @@ namespace OOBootCamp
 
         public string Park(Car car)
         {
-            return this.parkingLots[0].Park(car);
+            var parkingLot = parkingLots.OrderByDescending(p => (float)p.EmptySpaceCount / p.Capacity).First();
+            return parkingLot.Park(car);
         }
 
         public Car Pick(string carId)
         {
-            return this.parkingLots[0].Pick(carId);
+            var parkingLotWithParkedCar = parkingLots.FirstOrDefault(p => p.Pick(carId) != null);
+            return parkingLotWithParkedCar != null ? parkingLotWithParkedCar.Pick(carId) : null;
         }
     }
 }
