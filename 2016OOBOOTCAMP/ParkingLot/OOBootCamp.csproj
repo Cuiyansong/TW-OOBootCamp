@@ -57,7 +57,11 @@
     <Compile Include="ParkingLotFacts.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SmartParkingBoy.cs" />
+    <Compile Include="SuperParkingBoyFacts.cs" />
     <Compile Include="SmartParkingBoyFacts.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Document\2016-11-15-Tasking.txt" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
