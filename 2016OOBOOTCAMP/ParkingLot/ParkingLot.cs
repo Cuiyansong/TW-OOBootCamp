@@ -20,6 +20,11 @@ namespace OOBootCamp
         {
             get { return this.capacity; }
         }
+        
+        public bool IsParkingLotFull
+        {
+            get { return parkedCars.Count == capacity; }
+        }
 
         public ParkingLot(int capacity)
         {
@@ -41,7 +46,7 @@ namespace OOBootCamp
 
         public string Park(Car parkedCar)
         {
-            if (IsParkingLotFull())
+            if (IsParkingLotFull)
             {
                 return null;
             }
@@ -50,10 +55,6 @@ namespace OOBootCamp
             return parkedCar.Id;
         }
 
-        public bool IsParkingLotFull()
-        {
-            return parkedCars.Count == capacity;
-        }
 
         public bool Contains(string id)
         {
