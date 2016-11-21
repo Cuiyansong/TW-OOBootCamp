@@ -17,9 +17,15 @@ namespace ParkingLot
             this.parkingLots.AddRange(parkingLots);
         }
 
+        protected virtual float OrderFunc(OOBootCamp.ParkingLot parkingLot)
+        {
+            return (float)parkingLot.EmptySpaceCount;
+        }
+
         public virtual string Park(Car car)
         {
-            return car.Id;
+            var parkingLot = parkingLots.OrderByDescending(OrderFunc).FirstOrDefault(_ => !_.IsParkingLotFull);
+            return parkingLot == null ? null : parkingLot.Park(car);
         }
 
         public virtual Car Pick(string carId)

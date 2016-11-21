@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using ParkingLot;
 
@@ -10,10 +11,9 @@ namespace OOBootCamp
         {
         }
 
-        public override string Park(Car car)
+        protected override float OrderFunc(ParkingLot parkingLot)
         {
-            var parkingLot = parkingLots.OrderByDescending(p => (float)p.EmptySpaceCount / p.Capacity).First();
-            return parkingLot.Park(car);
+            return (float) parkingLot.EmptySpaceCount / parkingLot.Capacity;
         }
     }
 }

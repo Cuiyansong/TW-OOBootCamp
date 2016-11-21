@@ -10,11 +10,5 @@ namespace OOBootCamp
         {
             
         }
-
-        public override string Park(Car car)
-        {
-            var emptyParkingLot = this.parkingLots.FirstOrDefault(_ => !_.IsParkingLotFull);
-            return emptyParkingLot == null ? null : emptyParkingLot.Park(car);
-        }
     }
 }

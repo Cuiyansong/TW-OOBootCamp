@@ -10,9 +10,9 @@ namespace OOBootCamp
         {
         }
 
-        public override string Park(Car car)
+        protected override float OrderFunc(ParkingLot parkingLot)
         {
-            return parkingLots.OrderByDescending(p => p.EmptySpaceCount).First().Park(car);
+            return parkingLot.EmptySpaceCount;
         }
     }
 }
