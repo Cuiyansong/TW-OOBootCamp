@@ -13,7 +13,7 @@ namespace ParkingLot.Tests
             var firstParkinglot = new OOBootCamp.ParkingLot(1);
             var secondParkinglot = new OOBootCamp.ParkingLot(1);
 
-            var smartParkingBoy = new SmartParkingBoy(new List<OOBootCamp.ParkingLot> {firstParkinglot, secondParkinglot});
+            var smartParkingBoy = new SmartParkingBoy(firstParkinglot, secondParkinglot);
             var car = new Car("car");
             var carId = smartParkingBoy.Park(car);
 
@@ -28,7 +28,7 @@ namespace ParkingLot.Tests
             var parkedCar = new Car("parked car");
             firstParkinglot.Park(parkedCar);
 
-            var smartParkingBoy = new SmartParkingBoy(new List<OOBootCamp.ParkingLot> { firstParkinglot, secondParkinglot });
+            var smartParkingBoy = new SmartParkingBoy(firstParkinglot, secondParkinglot);
             var car = new Car("car");
             var carId = smartParkingBoy.Park(car);
 
@@ -43,7 +43,7 @@ namespace ParkingLot.Tests
             var parkedCar = new Car("parked car");
             secondParkinglot.Park(parkedCar);
 
-            var smartParkingBoy = new SmartParkingBoy(new List<OOBootCamp.ParkingLot> { firstParkinglot, secondParkinglot });
+            var smartParkingBoy = new SmartParkingBoy(firstParkinglot, secondParkinglot);
             var car = new Car("car");
             var carId = smartParkingBoy.Park(car);
 

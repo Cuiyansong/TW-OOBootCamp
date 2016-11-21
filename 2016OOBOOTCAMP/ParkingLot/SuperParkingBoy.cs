@@ -1,27 +1,19 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using ParkingLot;
 
 namespace OOBootCamp
 {
-    public class SuperParkingBoy
+    public class SuperParkingBoy: ParkingBoyBase
     {
-        private readonly List<ParkingLot> parkingLots;
-
-        public SuperParkingBoy(List<ParkingLot> parkingLots)
+        public SuperParkingBoy(params ParkingLot[] parkingLots): base(parkingLots)
         {
-            this.parkingLots = parkingLots;
         }
 
-        public string Park(Car car)
+        public override string Park(Car car)
         {
             var parkingLot = parkingLots.OrderByDescending(p => (float)p.EmptySpaceCount / p.Capacity).First();
             return parkingLot.Park(car);
-        }
-
-        public Car Pick(string carId)
-        {
-            var parkingLotWithParkedCar = parkingLots.FirstOrDefault(p => p.Contains(carId));
-            return parkingLotWithParkedCar != null ? parkingLotWithParkedCar.Pick(carId) : null;
         }
     }
 }

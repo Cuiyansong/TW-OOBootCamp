@@ -11,7 +11,7 @@ namespace ParkingLot.Tests
         public void given_a_parkingLot_and_a_super_parking_boy_when_super_boy_park_a_car_then_the_car_in_the_parkingLot()
         {
             var firstParkinglot = new OOBootCamp.ParkingLot(1);
-            var superParkingBoy = new SuperParkingBoy(new List<OOBootCamp.ParkingLot> {firstParkinglot});
+            var superParkingBoy = new SuperParkingBoy(firstParkinglot);
             var car = new Car("car");
 
             var carId = superParkingBoy.Park(car);
@@ -23,7 +23,7 @@ namespace ParkingLot.Tests
         public void given_a_parkingLot_and_a_super_parking_boy_when_super_park_a_car_then_super_boy_pick_the_car_in_the_parkingLot()
         {
             var firstParkinglot = new OOBootCamp.ParkingLot(1);
-            var superParkingBoy = new SuperParkingBoy(new List<OOBootCamp.ParkingLot> { firstParkinglot });
+            var superParkingBoy = new SuperParkingBoy(firstParkinglot);
             var car = new Car("car");
             var carId = superParkingBoy.Park(car);
 
@@ -41,7 +41,7 @@ namespace ParkingLot.Tests
             var parkedCarInSecondParkingLot = new Car("car parked in the second parkinglot");
             firstPrakingLot.Park(parkedCarInFirstParkingLot);
             secondPrakingLot.Park(parkedCarInSecondParkingLot);
-            var superBoy = new SuperParkingBoy(new List<OOBootCamp.ParkingLot>() { firstPrakingLot, secondPrakingLot });
+            var superBoy = new SuperParkingBoy(firstPrakingLot, secondPrakingLot);
 
             var carId = superBoy.Park(car);
 
@@ -58,7 +58,7 @@ namespace ParkingLot.Tests
             var parkedCarInSecondParkingLot = new Car("car parked in the second parkinglot");
             firstPrakingLot.Park(parkedCarInFirstParkingLot);
             secondPrakingLot.Park(parkedCarInSecondParkingLot);
-            var superBoy = new SuperParkingBoy(new List<OOBootCamp.ParkingLot>() { firstPrakingLot, secondPrakingLot });
+            var superBoy = new SuperParkingBoy(firstPrakingLot, secondPrakingLot);
 
             var carId = superBoy.Park(car);
 
