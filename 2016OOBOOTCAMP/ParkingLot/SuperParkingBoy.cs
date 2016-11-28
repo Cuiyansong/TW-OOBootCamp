@@ -7,7 +7,7 @@ namespace OOBootCamp
 {
     public class SuperParkingBoy: ParkingBoyBase
     {
-        public SuperParkingBoy(params ParkingLot[] parkingLots): base(parkingLots)
+        public SuperParkingBoy(params ParkingLot[] parkingLot): base(parkingLot)
         {
         }
 

@@ -6,7 +6,7 @@ using OOBootCamp;
 
 namespace OOBootCamp
 {
-    public class ParkingLot
+    public class ParkingLot : IParking
     {
         private readonly Dictionary<string, Car> parkedCars;
         private readonly int capacity = 0;

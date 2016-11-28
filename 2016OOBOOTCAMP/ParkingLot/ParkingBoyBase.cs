@@ -8,13 +8,13 @@ using OOBootCamp;
 
 namespace ParkingLot
 {
-    public class ParkingBoyBase
+    public class ParkingBoyBase : IParking
     {
         protected readonly List<OOBootCamp.ParkingLot> parkingLots = new List<OOBootCamp.ParkingLot>();
 
-        public ParkingBoyBase(params OOBootCamp.ParkingLot[] parkingLots)
+        public ParkingBoyBase(params OOBootCamp.ParkingLot[] parkingLot)
         {
-            this.parkingLots.AddRange(parkingLots);
+            this.parkingLots.AddRange(parkingLot);
         }
 
         protected virtual float OrderFunc(OOBootCamp.ParkingLot parkingLot)
@@ -27,6 +27,8 @@ namespace ParkingLot
             var parkingLot = parkingLots.OrderByDescending(OrderFunc).FirstOrDefault(_ => !_.IsParkingLotFull);
             return parkingLot == null ? null : parkingLot.Park(car);
         }
+
+        public bool IsParkingLotFull { get; private set; }
 
         public virtual Car Pick(string carId)
         {

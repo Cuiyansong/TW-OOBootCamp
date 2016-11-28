@@ -51,6 +51,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Car.cs" />
+    <Compile Include="IParking.cs" />
     <Compile Include="ParkingBoy.cs" />
     <Compile Include="ParkingBoyBase.cs" />
     <Compile Include="ParkingLot.cs" />
@@ -60,10 +61,12 @@
     <Compile Include="Tests\ParkingBoyFacts.cs" />
     <Compile Include="Tests\ParkingLotFacts.cs" />
     <Compile Include="Tests\SmartParkingBoyFacts.cs" />
+    <Compile Include="Tests\ParkingManagerFacts.cs" />
     <Compile Include="Tests\SuperParkingBoyFacts.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Document\Questions.md" />
+    <Content Include="Document\2016-11-22-Tasking.txt" />
     <Content Include="Document\2016-11-15-Tasking.txt" />
   </ItemGroup>
   <Choose>

@@ -6,7 +6,7 @@ namespace OOBootCamp
 {
     public class SmartParkingBoy: ParkingBoyBase
     {
-        public SmartParkingBoy(params ParkingLot[] parkingLots): base(parkingLots)
+        public SmartParkingBoy(params ParkingLot[] parkingLot): base(parkingLot)
         {
         }
 
