@@ -28,7 +28,10 @@ namespace ParkingLot
             return parkingLot == null ? null : parkingLot.Park(car);
         }
 
-        public bool IsParkingLotFull { get; private set; }
+        public bool IsParkingLotFull 
+        {
+            get { return parkingLots.TrueForAll(_ => _.IsParkingLotFull); }
+        }
 
         public virtual Car Pick(string carId)
         {

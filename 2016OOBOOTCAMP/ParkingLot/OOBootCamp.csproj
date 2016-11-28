@@ -60,6 +60,7 @@
     <Compile Include="SuperParkingBoy.cs" />
     <Compile Include="Tests\ParkingBoyFacts.cs" />
     <Compile Include="Tests\ParkingLotFacts.cs" />
+    <Compile Include="ParkingManager.cs" />
     <Compile Include="Tests\SmartParkingBoyFacts.cs" />
     <Compile Include="Tests\ParkingManagerFacts.cs" />
     <Compile Include="Tests\SuperParkingBoyFacts.cs" />

@@ -1,6 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OOBootCamp;
 
@@ -75,34 +73,40 @@ namespace ParkingLot.Tests
 
             Assert.AreSame(car, parkingBoy.Pick(carId));
         }
-    }
 
-    public class ParkingManager
-    {
-        private List<IParking> parkingProxies = new List<IParking>();
-
-        public ParkingManager(params IParking[] parking)
+        [TestMethod]
+        public void
+            given_a_smart_boy_with_empty_parking_lot_and_a_super_boy_with_one_space_parking_lot_both_managed_by_parking_manager_when_parking_manager_park_the_car_then_super_boy_could_pick_the_car
+            ()
         {
-            parkingProxies.AddRange(parking);
+            var emptyParkinglot = new OOBootCamp.ParkingLot(0);
+            var parkinglot = new OOBootCamp.ParkingLot(1);
+            var smartBoy = new SmartParkingBoy(emptyParkinglot);
+            var superBoy = new SuperParkingBoy(parkinglot);
+            var manager = new ParkingManager(smartBoy, superBoy);
+            var car = new Car("car");
+
+            var carId = manager.Park(car);
+
+            Assert.AreSame(car, superBoy.Pick(carId));
         }
 
-        public string Park(Car car)
+        [TestMethod]
+        public void
+            given_a_smart_boy_with_empty_parking_lot_and_one_space_parking_lot_and_a_super_boy_with_one_space_parking_lot_both_managed_by_parking_manager_when_parking_manager_park_the_car_then_super_boy_could_pick_the_car
+            ()
         {
-            var parkingLot = parkingProxies.OrderByDescending(x => !x.IsParkingLotFull).FirstOrDefault();
-            return parkingLot == null ? null : parkingLot.Park(car);
-        }
+            var emptyParkinglot = new OOBootCamp.ParkingLot(0);
+            var firstNotEmptyParkingLot = new OOBootCamp.ParkingLot(1);
+            var secondNotEmptyParkingLot = new OOBootCamp.ParkingLot(1);
+            var smartBoy = new SmartParkingBoy(emptyParkinglot, firstNotEmptyParkingLot);
+            var superBoy = new SuperParkingBoy(secondNotEmptyParkingLot);
+            var manager = new ParkingManager(smartBoy, superBoy);
+            var car = new Car("car");
 
-        public Car Pick(string carId)
-        {
-            Car pickedCar = null;
-            parkingProxies.FirstOrDefault(
-                _ =>
-                {
-                    pickedCar = _.Pick(carId);
-                    return pickedCar != null;
-                });
+            var carId = manager.Park(car);
 
-            return pickedCar;
+            Assert.AreSame(car, smartBoy.Pick(carId));
         }
     }
 }
