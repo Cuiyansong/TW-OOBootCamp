@@ -67,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Document\Questions.md" />
+    <Content Include="Document\2016-11-29-Tasking.txt" />
     <Content Include="Document\2016-11-22-Tasking.txt" />
     <Content Include="Document\2016-11-15-Tasking.txt" />
   </ItemGroup>
