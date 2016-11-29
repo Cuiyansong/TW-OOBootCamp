@@ -19,16 +19,14 @@ namespace ParkingLot
 
         public virtual string Park(Car car)
         {
-            var parkingLot = ParkingLots.OrderByDescending(OrderFunc).FirstOrDefault(_ => !_.IsParkingLotFull);
+            var parkingLot = ParkingLots.OrderByDescending(OrderFunc).FirstOrDefault(_ => _.EmptySpaceCount != 0);
             return parkingLot == null ? null : parkingLot.Park(car);
         }
 
-        public bool IsParkingLotFull 
+        public int EmptySpaceCount 
         {
-            get { return ParkingLots.TrueForAll(_ => _.IsParkingLotFull); }
+            get { return ParkingLots.Sum(x => x.EmptySpaceCount); }
         }
-
-        public int EmptySpaceCount { get; private set; }
 
         public virtual Car Pick(string carId)
         {

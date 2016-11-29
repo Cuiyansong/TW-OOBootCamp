@@ -12,14 +12,9 @@ namespace ParkingLot
             get { return capacity - this.parkedCars.Count; }
         }
 
-        public int Capacity 
+        public int Capacity
         {
             get { return this.capacity; }
-        }
-        
-        public bool IsParkingLotFull
-        {
-            get { return parkedCars.Count == capacity; }
         }
 
         public OOParkingLot(int capacity)
@@ -42,7 +37,7 @@ namespace ParkingLot
 
         public string Park(Car parkedCar)
         {
-            if (IsParkingLotFull)
+            if (this.Capacity == this.parkedCars.Count)
             {
                 return null;
             }
