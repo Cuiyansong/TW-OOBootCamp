@@ -1,10 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using ParkingLot;
-
-namespace OOBootCamp
+﻿namespace ParkingLot
 {
-    public class ParkingBoy: ParkingBoyBase
+    public class ParkingBoy: ParkingBoyBase<IParking>
     {
         public ParkingBoy(params IParking[] parkingLot)
             : base(parkingLot)

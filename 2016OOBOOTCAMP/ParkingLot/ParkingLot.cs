@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using OOBootCamp;
+﻿using System.Collections.Generic;
 
-namespace OOBootCamp
+namespace ParkingLot
 {
     public class ParkingLot : IParking
     {

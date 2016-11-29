@@ -1,23 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using OOBootCamp;
 
 namespace ParkingLot
 {
-    public class ParkingBoyBase : IParking
+    public class ParkingBoyBase<T> : IParkable where T : IParkable
     {
-        protected readonly List<IParking> parkingLots = new List<IParking>();
+        protected readonly List<T> parkingLots = new List<T>();
 
-        public ParkingBoyBase(params IParking[] parkingLot)
+        public ParkingBoyBase(params T[] parkingLot)
         {
             this.parkingLots.AddRange(parkingLot);
         }
 
-        protected virtual float OrderFunc(IParking parkingLot)
+        protected virtual float OrderFunc(T parkingLot)
         {
             return (float)parkingLot.EmptySpaceCount;
         }
@@ -34,7 +29,6 @@ namespace ParkingLot
         }
 
         public int EmptySpaceCount { get; private set; }
-        public int Capacity { get; private set; }
 
         public virtual Car Pick(string carId)
         {

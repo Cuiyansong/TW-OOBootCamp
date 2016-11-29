@@ -1,11 +1,15 @@
-﻿namespace OOBootCamp
+﻿namespace ParkingLot
 {
-    public interface IParking
+    public interface IParking : IParkable
+    {
+        int Capacity { get; }
+    }
+
+    public interface IParkable
     {
         Car Pick(string id);
-        string Park(Car parkedCar);
         bool IsParkingLotFull { get; }
         int EmptySpaceCount { get; }
-        int Capacity { get; }
+        string Park(Car parkedCar);
     }
 }

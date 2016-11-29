@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using OOBootCamp;
+using ParkingLot;
 
 namespace ParkingLot.Tests
 {
@@ -10,8 +10,8 @@ namespace ParkingLot.Tests
         [TestMethod]
         public void given_two_parkingLot_with_same_space_and_a_smart_parking_boy_when_smart_boy_park_a_car_then_the_car_in_the_first_parkingLot()
         {
-            var firstParkinglot = new OOBootCamp.ParkingLot(1);
-            var secondParkinglot = new OOBootCamp.ParkingLot(1);
+            var firstParkinglot = new ParkingLot(1);
+            var secondParkinglot = new ParkingLot(1);
 
             var smartParkingBoy = new SmartParkingBoy(firstParkinglot, secondParkinglot);
             var car = new Car("car");
@@ -23,8 +23,8 @@ namespace ParkingLot.Tests
         [TestMethod]
         public void given_first_parkingLot_with_one_space_and_second_parkingLot_with_two_space_and_a_smart_parking_boy_when_smart_boy_park_a_car_then_the_car_in_the_second_parkingLot()
         {
-            var firstParkinglot = new OOBootCamp.ParkingLot(2);
-            var secondParkinglot = new OOBootCamp.ParkingLot(2);
+            var firstParkinglot = new ParkingLot(2);
+            var secondParkinglot = new ParkingLot(2);
             var parkedCar = new Car("parked car");
             firstParkinglot.Park(parkedCar);
 
@@ -38,8 +38,8 @@ namespace ParkingLot.Tests
         [TestMethod]
         public void given_first_parkingLot_with_two_space_and_second_parkingLot_with_one_space_and_a_smart_parking_boy_when_smart_boy_park_a_car_then_the_car_in_the_first_parkingLot()
         {
-            var firstParkinglot = new OOBootCamp.ParkingLot(2);
-            var secondParkinglot = new OOBootCamp.ParkingLot(2);
+            var firstParkinglot = new ParkingLot(2);
+            var secondParkinglot = new ParkingLot(2);
             var parkedCar = new Car("parked car");
             secondParkinglot.Park(parkedCar);
 

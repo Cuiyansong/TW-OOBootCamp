@@ -1,12 +1,8 @@
-using System.Collections.Generic;
-using System.Linq;
-using OOBootCamp;
-
 namespace ParkingLot.Tests
 {
-    public class ParkingManager: ParkingBoyBase
+    public class ParkingManager : ParkingBoyBase<IParkable>
     {
-        public ParkingManager(params IParking[] parkingLot)
+        public ParkingManager(params IParkable[] parkingLot)
             : base(parkingLot)
         {
         }

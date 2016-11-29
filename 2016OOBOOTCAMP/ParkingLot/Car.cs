@@ -1,4 +1,4 @@
-﻿namespace OOBootCamp
+﻿namespace ParkingLot
 {
     public class Car
     {
