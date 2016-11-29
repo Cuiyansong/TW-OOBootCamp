@@ -4,32 +4,11 @@ using OOBootCamp;
 
 namespace ParkingLot.Tests
 {
-    public class ParkingManager
+    public class ParkingManager: ParkingBoyBase
     {
-        private List<IParking> parkingProxies = new List<IParking>();
-
-        public ParkingManager(params IParking[] parking)
+        public ParkingManager(params IParking[] parkingLot)
+            : base(parkingLot)
         {
-            parkingProxies.AddRange(parking);
-        }
-
-        public string Park(Car car)
-        {
-            var parkingLot = parkingProxies.OrderByDescending(x => !x.IsParkingLotFull).FirstOrDefault();
-            return parkingLot == null ? null : parkingLot.Park(car);
-        }
-
-        public Car Pick(string carId)
-        {
-            Car pickedCar = null;
-            parkingProxies.FirstOrDefault(
-                _ =>
-                {
-                    pickedCar = _.Pick(carId);
-                    return pickedCar != null;
-                });
-
-            return pickedCar;
         }
     }
 }

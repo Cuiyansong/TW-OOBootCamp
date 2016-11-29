@@ -5,5 +5,7 @@
         Car Pick(string id);
         string Park(Car parkedCar);
         bool IsParkingLotFull { get; }
+        int EmptySpaceCount { get; }
+        int Capacity { get; }
     }
 }

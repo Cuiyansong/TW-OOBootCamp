@@ -10,14 +10,14 @@ namespace ParkingLot
 {
     public class ParkingBoyBase : IParking
     {
-        protected readonly List<OOBootCamp.ParkingLot> parkingLots = new List<OOBootCamp.ParkingLot>();
+        protected readonly List<IParking> parkingLots = new List<IParking>();
 
-        public ParkingBoyBase(params OOBootCamp.ParkingLot[] parkingLot)
+        public ParkingBoyBase(params IParking[] parkingLot)
         {
             this.parkingLots.AddRange(parkingLot);
         }
 
-        protected virtual float OrderFunc(OOBootCamp.ParkingLot parkingLot)
+        protected virtual float OrderFunc(IParking parkingLot)
         {
             return (float)parkingLot.EmptySpaceCount;
         }
@@ -32,6 +32,9 @@ namespace ParkingLot
         {
             get { return parkingLots.TrueForAll(_ => _.IsParkingLotFull); }
         }
+
+        public int EmptySpaceCount { get; private set; }
+        public int Capacity { get; private set; }
 
         public virtual Car Pick(string carId)
         {

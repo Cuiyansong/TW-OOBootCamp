@@ -7,11 +7,12 @@ namespace OOBootCamp
 {
     public class SuperParkingBoy: ParkingBoyBase
     {
-        public SuperParkingBoy(params ParkingLot[] parkingLot): base(parkingLot)
+        public SuperParkingBoy(params IParking[] parkingLot)
+            : base(parkingLot)
         {
         }
 
-        protected override float OrderFunc(ParkingLot parkingLot)
+        protected override float OrderFunc(IParking parkingLot)
         {
             return (float) parkingLot.EmptySpaceCount / parkingLot.Capacity;
         }

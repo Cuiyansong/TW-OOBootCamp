@@ -6,13 +6,9 @@ namespace OOBootCamp
 {
     public class SmartParkingBoy: ParkingBoyBase
     {
-        public SmartParkingBoy(params ParkingLot[] parkingLot): base(parkingLot)
+        public SmartParkingBoy(params IParking[] parkingLot)
+            : base(parkingLot)
         {
-        }
-
-        protected override float OrderFunc(ParkingLot parkingLot)
-        {
-            return parkingLot.EmptySpaceCount;
         }
     }
 }
