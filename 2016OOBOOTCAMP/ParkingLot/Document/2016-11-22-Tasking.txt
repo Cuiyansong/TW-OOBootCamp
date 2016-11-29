@@ -1,3 +1,4 @@
 ﻿Requirements:
 
 停车经理： 可以停车和取车，也可以让手下的各种Boy停车和取车。
+但parkingBoy不能管理Boy

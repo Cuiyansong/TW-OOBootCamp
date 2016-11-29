@@ -1,0 +1,15 @@
+﻿Requirements:
+
+停车主管Director：我希望有一张报表，其中包含经理和每个Boy所管理的车。一个Director只管一个Manager
+
+例如 M 5 20， Manager 总共空5个位置，20个汽车停在其中。B0代表ParkingBoy，B1代表SmartBoy，B2代表SuperBoy
+
+	M 5 20
+	  P 2 10
+	  B0 2 5
+		P 2 5
+      B1 1 5
+	    P 0 3
+		P 1 2
+
+额外需求： 同时支持多种样式输出，例如纯文本和其他任何形式。
