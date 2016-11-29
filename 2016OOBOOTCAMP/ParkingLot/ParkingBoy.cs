@@ -1,9 +1,9 @@
 ﻿namespace ParkingLot
 {
-    public class ParkingBoy: ParkingBoyBase<IParking>
+    public class ParkingBoy: ParkingBoyBase<IParkingLot>
     {
-        public ParkingBoy(params IParking[] parkingLot)
-            : base(parkingLot)
+        public ParkingBoy(params IParkingLot[] parkingLotLot)
+            : base(parkingLotLot)
         {
             
         }

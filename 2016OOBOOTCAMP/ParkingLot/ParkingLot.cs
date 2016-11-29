@@ -2,7 +2,7 @@
 
 namespace ParkingLot
 {
-    public class ParkingLot : IParking
+    public class ParkingLotLot : IParkingLot
     {
         private readonly Dictionary<string, Car> parkedCars;
         private readonly int capacity = 0;
@@ -22,7 +22,7 @@ namespace ParkingLot
             get { return parkedCars.Count == capacity; }
         }
 
-        public ParkingLot(int capacity)
+        public ParkingLotLot(int capacity)
         {
             this.capacity = capacity;
             parkedCars = new Dictionary<string, Car>(capacity);

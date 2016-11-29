@@ -1,15 +1,15 @@
 ﻿namespace ParkingLot
 {
-    public class SuperParkingBoy: ParkingBoyBase<IParking>
+    public class SuperParkingBoy: ParkingBoyBase<IParkingLot>
     {
-        public SuperParkingBoy(params IParking[] parkingLot)
-            : base(parkingLot)
+        public SuperParkingBoy(params IParkingLot[] parkingLotLot)
+            : base(parkingLotLot)
         {
         }
 
-        protected override float OrderFunc(IParking parkingLot)
+        protected override float OrderFunc(IParkingLot parkingLotLot)
         {
-            return (float) parkingLot.EmptySpaceCount / parkingLot.Capacity;
+            return (float) parkingLotLot.EmptySpaceCount / parkingLotLot.Capacity;
         }
     }
 }

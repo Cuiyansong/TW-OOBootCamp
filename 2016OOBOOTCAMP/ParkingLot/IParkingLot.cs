@@ -1,6 +1,6 @@
 ﻿namespace ParkingLot
 {
-    public interface IParking : IParkable
+    public interface IParkingLot : IParkable
     {
         int Capacity { get; }
     }

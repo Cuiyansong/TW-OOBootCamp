@@ -1,4 +1,4 @@
-namespace ParkingLot.Tests
+namespace ParkingLot
 {
     public class ParkingManager : ParkingBoyBase<IParkable>
     {

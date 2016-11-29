@@ -5,11 +5,11 @@ namespace ParkingLot
 {
     public class ParkingBoyBase<T> : IParkable where T : IParkable
     {
-        protected readonly List<T> parkingLots = new List<T>();
+        protected readonly List<T> ParkingLots = new List<T>();
 
-        public ParkingBoyBase(params T[] parkingLot)
+        public ParkingBoyBase(params T[] parkingLotLot)
         {
-            this.parkingLots.AddRange(parkingLot);
+            this.ParkingLots.AddRange(parkingLotLot);
         }
 
         protected virtual float OrderFunc(T parkingLot)
@@ -19,13 +19,13 @@ namespace ParkingLot
 
         public virtual string Park(Car car)
         {
-            var parkingLot = parkingLots.OrderByDescending(OrderFunc).FirstOrDefault(_ => !_.IsParkingLotFull);
+            var parkingLot = ParkingLots.OrderByDescending(OrderFunc).FirstOrDefault(_ => !_.IsParkingLotFull);
             return parkingLot == null ? null : parkingLot.Park(car);
         }
 
         public bool IsParkingLotFull 
         {
-            get { return parkingLots.TrueForAll(_ => _.IsParkingLotFull); }
+            get { return ParkingLots.TrueForAll(_ => _.IsParkingLotFull); }
         }
 
         public int EmptySpaceCount { get; private set; }
@@ -33,7 +33,7 @@ namespace ParkingLot
         public virtual Car Pick(string carId)
         {
             Car pickedCar = null;
-            this.parkingLots.FirstOrDefault(
+            this.ParkingLots.FirstOrDefault(
                 _ =>
                 {
                     pickedCar = _.Pick(carId);

@@ -51,7 +51,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Car.cs" />
-    <Compile Include="IParking.cs" />
+    <Compile Include="IParkingLot.cs" />
     <Compile Include="ParkingBoy.cs" />
     <Compile Include="ParkingBoyBase.cs" />
     <Compile Include="ParkingLot.cs" />
