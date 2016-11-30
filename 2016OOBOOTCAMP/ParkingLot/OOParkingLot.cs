@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ParkingLot
 {
-    public class OOParkingLot : IParkingLot, IReport
+    public class OOParkingLot : IParkingLot
     {
         private readonly Dictionary<string, Car> parkedCars;
         private readonly int capacity = 0;
@@ -54,13 +54,13 @@ namespace ParkingLot
             var totalEmptySpaceCount = this.EmptySpaceCount;
             var totalCapacity = this.capacity;
 
-            output.Append(string.Format("{0} {1} {2}", GetName(), totalEmptySpaceCount, totalCapacity - totalEmptySpaceCount));
+            output.Append(string.Format("{0} {1} {2}", Name, totalEmptySpaceCount, totalCapacity - totalEmptySpaceCount));
             return output.ToString();
         }
 
-        public string GetName()
+        public string Name
         {
-            return "P";
+            get { return "P"; }
         }
     }
 }

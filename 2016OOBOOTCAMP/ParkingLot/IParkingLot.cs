@@ -15,6 +15,6 @@
     public interface IReport
     {
         string GetReport();
-        string GetName();
+        string Name { get; }
     }
 }

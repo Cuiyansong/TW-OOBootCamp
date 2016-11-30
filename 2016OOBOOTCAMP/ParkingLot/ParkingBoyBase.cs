@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace ParkingLot
 {
@@ -36,14 +37,9 @@ namespace ParkingLot
             return pickedCar;
         }
 
-        public string GetReport()
+        public virtual string Name
         {
-            throw new System.NotImplementedException();
-        }
-
-        public string GetName()
-        {
-            throw new System.NotImplementedException();
+            get { throw new System.NotImplementedException(); }
         }
 
         public int EmptySpaceCount
@@ -54,6 +50,22 @@ namespace ParkingLot
         public int Capacity
         {
             get { return ParkingLots.Sum(x => x.Capacity); }
+        }
+
+        public string GetReport()
+        {
+            var output = new StringBuilder();
+            var totalEmptySpaceCount = this.ParkingLots.Sum(x => x.EmptySpaceCount);
+            var totalCapacity = this.ParkingLots.Sum(x => x.Capacity);
+
+            output.Append(string.Format("{0} {1} {2}", Name, totalEmptySpaceCount, totalCapacity - totalEmptySpaceCount));
+            foreach (var item in ParkingLots)
+            {
+                output.Append(System.Environment.NewLine);
+                output.Append("\t\t" + item.GetReport());
+            }
+
+            return output.ToString();
         }
     }
 }
