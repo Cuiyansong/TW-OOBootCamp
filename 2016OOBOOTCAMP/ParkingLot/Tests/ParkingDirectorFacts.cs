@@ -13,7 +13,7 @@ namespace ParkingLot.Tests
             var ooParkingLot = new OOParkingLot(1);
             var parkingDirector = new ParkingDirector(new ParkingManager(ooParkingLot));
 
-            var report = parkingDirector.GetReport();
+            var report = parkingDirector.OutPutByStrategy();
             
             Assert.AreEqual("M 1 0\r\n\tP 1 0", report);
         }
@@ -26,7 +26,7 @@ namespace ParkingLot.Tests
             var parkingDirector = new ParkingDirector(parkingManager);
             parkingManager.Park(new Car("car"));
 
-            var report = parkingDirector.GetReport();
+            var report = parkingDirector.OutPutByStrategy();
 
             Assert.AreEqual("M 0 1\r\n\tP 0 1", report);
         }
@@ -38,7 +38,7 @@ namespace ParkingLot.Tests
             var secondParkingLot = new OOParkingLot(0);
             var parkingDirector = new ParkingDirector(new ParkingManager(firstParkingLot, secondParkingLot));
 
-            var report = parkingDirector.GetReport();
+            var report = parkingDirector.OutPutByStrategy();
 
             Assert.AreEqual("M 1 0\r\n\tP 1 0\r\n\tP 0 0", report);
         }
@@ -50,7 +50,7 @@ namespace ParkingLot.Tests
             var parkingBoy = new ParkingBoy(new OOParkingLot(1));
             var parkingDirector = new ParkingDirector(new ParkingManager(ooParkingLot, parkingBoy));
 
-            var report = parkingDirector.GetReport();
+            var report = parkingDirector.OutPutByStrategy();
 
             Assert.AreEqual("M 2 0\r\n\tP 1 0\r\n\tB0 1 0\r\n\t\tP 1 0", report);
         }
@@ -62,7 +62,7 @@ namespace ParkingLot.Tests
             var smartParkingBoy = new SmartParkingBoy(new OOParkingLot(1));
             var parkingDirector = new ParkingDirector(new ParkingManager(ooParkingLot, smartParkingBoy));
 
-            var report = parkingDirector.GetReport();
+            var report = parkingDirector.OutPutByStrategy();
 
             Assert.AreEqual("M 2 0\r\n\tP 1 0\r\n\tB1 1 0\r\n\t\tP 1 0", report);
         }
@@ -74,7 +74,7 @@ namespace ParkingLot.Tests
             var superParkingBoy = new SuperParkingBoy(new OOParkingLot(1));
             var parkingDirector = new ParkingDirector(new ParkingManager(ooParkingLot, superParkingBoy));
 
-            var report = parkingDirector.GetReport();
+            var report = parkingDirector.OutPutByStrategy();
 
             Assert.AreEqual("M 2 0\r\n\tP 1 0\r\n\tB2 1 0\r\n\t\tP 1 0", report);
         }
@@ -86,7 +86,7 @@ namespace ParkingLot.Tests
             var smartParkingBoy = new SmartParkingBoy(new OOParkingLot(1));
             var parkingDirector = new ParkingDirector(new ParkingManager(smartParkingBoy, superParkingBoy));
 
-            var report = parkingDirector.GetReport();
+            var report = parkingDirector.OutPutByStrategy();
 
             Assert.AreEqual("M 2 0\r\n\tB1 1 0\r\n\t\tP 1 0\r\n\tB2 1 0\r\n\t\tP 1 0", report);
         }
@@ -98,7 +98,7 @@ namespace ParkingLot.Tests
             var smartParkingBoy = new SmartParkingBoy(new OOParkingLot(1));
             var parkingDirector = new ParkingDirector(new ParkingManager(smartParkingBoy, superParkingBoy));
 
-            var report = parkingDirector.GetReport();
+            var report = parkingDirector.OutPutByStrategy();
 
             Assert.AreEqual("M 3 0\r\n\tB1 1 0\r\n\t\tP 1 0\r\n\tB2 2 0\r\n\t\tP 1 0\r\n\t\tP 1 0", report);
         }
@@ -112,9 +112,54 @@ namespace ParkingLot.Tests
             var parkingDirector = new ParkingDirector(new ParkingManager(smartParkingBoy, superParkingBoy));
             smartBoyParkingLot.Park(new Car("car"));
 
-            var report = parkingDirector.GetReport();
+            var report = parkingDirector.OutPutByStrategy();
 
             Assert.AreEqual("M 2 1\r\n\tB1 0 1\r\n\t\tP 0 1\r\n\tB2 2 0\r\n\t\tP 1 0\r\n\t\tP 1 0", report);
         }
+
+        [TestMethod]
+        public void given_a_parking_manager_with_one_space_parking_lot_managed_by_a_parking_director_then_director_could_print_right_report_by_console_log()
+        {
+            var ooParkingLot = new OOParkingLot(1);
+            var parkingDirector = new ParkingDirector(new ParkingManager(ooParkingLot));
+
+            var report = parkingDirector.OutPutByStrategy(new ConsoleStrategy());
+
+            Assert.AreEqual("M 1 0\r\n\tP 1 0", report);
+        }
+
+        [TestMethod]
+        public void given_a_parking_manager_with_one_space_parking_lot_managed_by_a_parking_director_then_director_could_print_right_report_by_file_log()
+        {
+            var ooParkingLot = new OOParkingLot(1);
+            var parkingDirector = new ParkingDirector(new ParkingManager(ooParkingLot));
+
+            var report = parkingDirector.OutPutByStrategy(new FileStrategy());
+
+            Assert.AreEqual("M 1 0\r\n\tP 1 0", report);
+        }
+    }
+
+    public class ConsoleStrategy: IOutPutStrategy
+    {
+        public string Write(string input)
+        {
+            Console.Write(input);
+            return input;
+        }
+    }
+
+    public class FileStrategy : IOutPutStrategy
+    {
+        public string Write(string input)
+        {
+            Console.Write(input);
+            return input;
+        }
+    }
+
+    public interface IOutPutStrategy
+    {
+        string Write(string input);
     }
 }

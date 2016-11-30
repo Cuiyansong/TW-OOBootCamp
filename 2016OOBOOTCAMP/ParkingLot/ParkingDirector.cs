@@ -1,4 +1,6 @@
-﻿namespace ParkingLot
+﻿using ParkingLot.Tests;
+
+namespace ParkingLot
 {
     public class ParkingDirector
     {
@@ -9,9 +11,10 @@
             this.parkingManager = parkingManager;
         }
 
-        public string GetReport()
+        public string OutPutByStrategy(IOutPutStrategy strategy = null)
         {
-            return this.parkingManager.GetReport();
+            var report = parkingManager.GetReport();
+            return strategy == null ? report : strategy.Write(report);
         }
     }
 }
