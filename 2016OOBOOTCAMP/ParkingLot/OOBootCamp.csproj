@@ -58,6 +58,8 @@
     <Compile Include="ParkingDirector.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SmartParkingBoy.cs" />
+    <Compile Include="Strategy\ConsoleStrategy.cs" />
+    <Compile Include="Strategy\FileStrategy.cs" />
     <Compile Include="SuperParkingBoy.cs" />
     <Compile Include="Tests\ParkingBoyFacts.cs" />
     <Compile Include="Tests\ParkingLotFacts.cs" />

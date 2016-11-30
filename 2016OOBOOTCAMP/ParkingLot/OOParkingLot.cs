@@ -48,7 +48,7 @@ namespace ParkingLot
             return parkedCar.Id;
         }
 
-        public string GetReport()
+        public string BuildReport()
         {
             var output = new StringBuilder();
             var totalEmptySpaceCount = this.EmptySpaceCount;

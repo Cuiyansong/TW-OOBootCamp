@@ -1,7 +1,13 @@
 ﻿namespace ParkingLot
 {
+    public interface IOutPutStrategy
+    {
+        string Write(string input);
+    }
+
     public interface IParkingLot : IParkable
     {
+
     }
 
     public interface IParkable: IReport
@@ -14,7 +20,7 @@
 
     public interface IReport
     {
-        string GetReport();
+        string BuildReport();
         string Name { get; }
         string Prefix { get; }
     }

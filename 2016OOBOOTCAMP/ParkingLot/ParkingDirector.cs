@@ -13,7 +13,7 @@ namespace ParkingLot
 
         public string OutPutByStrategy(IOutPutStrategy strategy = null)
         {
-            var report = parkingManager.GetReport();
+            var report = parkingManager.BuildReport();
             return strategy == null ? report : strategy.Write(report);
         }
     }

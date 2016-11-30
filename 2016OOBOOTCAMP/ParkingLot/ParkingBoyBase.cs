@@ -57,7 +57,7 @@ namespace ParkingLot
             get { return ParkingLots.Sum(x => x.Capacity); }
         }
 
-        public string GetReport()
+        public string BuildReport()
         {
             var output = new StringBuilder();
             var totalEmptySpaceCount = this.ParkingLots.Sum(x => x.EmptySpaceCount);
@@ -67,7 +67,7 @@ namespace ParkingLot
             foreach (var item in ParkingLots)
             {
                 output.Append(System.Environment.NewLine);
-                output.Append(this.Prefix + item.GetReport());
+                output.Append(this.Prefix + item.BuildReport());
             }
 
             return output.ToString();

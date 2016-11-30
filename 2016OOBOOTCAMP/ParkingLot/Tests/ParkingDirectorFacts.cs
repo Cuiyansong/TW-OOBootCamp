@@ -1,6 +1,6 @@
-﻿using System;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using ParkingLot.Strategy;
 
 namespace ParkingLot.Tests
 {
@@ -138,28 +138,5 @@ namespace ParkingLot.Tests
 
             Assert.AreEqual("M 1 0\r\n\tP 1 0", report);
         }
-    }
-
-    public class ConsoleStrategy: IOutPutStrategy
-    {
-        public string Write(string input)
-        {
-            Console.Write(input);
-            return input;
-        }
-    }
-
-    public class FileStrategy : IOutPutStrategy
-    {
-        public string Write(string input)
-        {
-            Console.Write(input);
-            return input;
-        }
-    }
-
-    public interface IOutPutStrategy
-    {
-        string Write(string input);
     }
 }
