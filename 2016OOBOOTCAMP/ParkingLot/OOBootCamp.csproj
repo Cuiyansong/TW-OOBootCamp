@@ -55,6 +55,7 @@
     <Compile Include="OOParkingLot.cs" />
     <Compile Include="ParkingBoy.cs" />
     <Compile Include="ParkingBoyBase.cs" />
+    <Compile Include="ParkingDirector.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SmartParkingBoy.cs" />
     <Compile Include="SuperParkingBoy.cs" />
@@ -64,6 +65,7 @@
     <Compile Include="Tests\SmartParkingBoyFacts.cs" />
     <Compile Include="Tests\ParkingManagerFacts.cs" />
     <Compile Include="Tests\SuperParkingBoyFacts.cs" />
+    <Compile Include="Tests\ParkingDirectorFacts.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Document\Questions.md" />

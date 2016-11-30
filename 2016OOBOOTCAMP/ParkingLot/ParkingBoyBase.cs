@@ -23,11 +23,6 @@ namespace ParkingLot
             return parkingLot == null ? null : parkingLot.Park(car);
         }
 
-        public int EmptySpaceCount 
-        {
-            get { return ParkingLots.Sum(x => x.EmptySpaceCount); }
-        }
-
         public virtual Car Pick(string carId)
         {
             Car pickedCar = null;
@@ -39,6 +34,26 @@ namespace ParkingLot
                 });
 
             return pickedCar;
+        }
+
+        public string GetReport()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public string GetName()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public int EmptySpaceCount
+        {
+            get { return ParkingLots.Sum(x => x.EmptySpaceCount); }
+        }
+
+        public int Capacity
+        {
+            get { return ParkingLots.Sum(x => x.Capacity); }
         }
     }
 }
