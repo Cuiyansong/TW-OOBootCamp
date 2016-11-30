@@ -42,6 +42,11 @@ namespace ParkingLot
             get { throw new System.NotImplementedException(); }
         }
 
+        public virtual string Prefix
+        {
+            get { return "\t\t"; }
+        }
+
         public int EmptySpaceCount
         {
             get { return ParkingLots.Sum(x => x.EmptySpaceCount); }
@@ -62,7 +67,7 @@ namespace ParkingLot
             foreach (var item in ParkingLots)
             {
                 output.Append(System.Environment.NewLine);
-                output.Append("\t\t" + item.GetReport());
+                output.Append(this.Prefix + item.GetReport());
             }
 
             return output.ToString();

@@ -62,5 +62,10 @@ namespace ParkingLot
         {
             get { return "P"; }
         }
+
+        public string Prefix
+        {
+            get { return ""; }
+        }
     }
 }

@@ -3,32 +3,21 @@ using System.Text;
 
 namespace ParkingLot
 {
-    public class ParkingManager : ParkingBoyBase<IParkable>, IReport
+    public class ParkingManager : ParkingBoyBase<IParkable>
     {
         public ParkingManager(params IParkable[] parkingLot)
             : base(parkingLot)
         {
         }
 
-        public string GetReport()
+        public override string Name
         {
-            var output = new StringBuilder();
-            var totalEmptySpaceCount = this.ParkingLots.Sum(x => x.EmptySpaceCount);
-            var totalCapacity = this.ParkingLots.Sum(x => x.Capacity);
-
-            output.Append(string.Format("{0} {1} {2}", GetName(), totalEmptySpaceCount, totalCapacity - totalEmptySpaceCount));
-            foreach (var item in ParkingLots)
-            {
-                output.Append(System.Environment.NewLine);
-                output.Append("\t" + item.GetReport());
-            }
-
-            return output.ToString();
+            get { return "M"; }
         }
 
-        public string GetName()
+        public override string Prefix
         {
-            return "M";
+            get { return "\t"; }
         }
     }
 }

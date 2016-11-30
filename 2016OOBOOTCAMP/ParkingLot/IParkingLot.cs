@@ -16,5 +16,6 @@
     {
         string GetReport();
         string Name { get; }
+        string Prefix { get; }
     }
 }
